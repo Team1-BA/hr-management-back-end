@@ -81,9 +81,7 @@ public class AuthService extends ServiceManager<Auth, Long> {
             if (optionalAuth.isEmpty() || !optionalAuth.get().getStatus().equals(EStatus.ACTIVE) || !optionalAuth.get().getRole().equals(ERole.GUEST)) {
                 throw new AuthManagerException(ErrorType.USER_NOT_FOUND);
             }
-
         }
-
         if (!optionalAuth.get().getPassword().equals(dto.getPassword())) {
             throw new AuthManagerException(ErrorType.PASSWORDS_NOT_MATCH);
         }
